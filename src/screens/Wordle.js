@@ -25,9 +25,9 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle6=============================');
-  console.log('Wordle6');
-  console.log('==========Wordle6==========================');
+  console.log('=======Wordle7=============================');
+  console.log('Wordle7');
+  console.log('==========Wordle7==========================');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -71,15 +71,15 @@ function Wordle() {
     const [isHardMode, setIsHardMode] = useState(localStorage.getItem('gameMode')
         ? localStorage.getItem('gameMode') === 'hard'
         : false);
-    // useEffect(() => {
-    //     // if no game state on load,
-    //     // show the user the how-to info modal
-    //     if (!loadGameStateFromLocalStorage(true)) {
-    //         setTimeout(() => {
-    //             setIsInfoModalOpen(true);
-    //         }, WELCOME_INFO_MODAL_MS);
-    //     }
-    // });
+    useEffect(() => {
+        // if no game state on load,
+        // show the user the how-to info modal
+        if (!loadGameStateFromLocalStorage(true)) {
+            setTimeout(() => {
+                setIsInfoModalOpen(true);
+            }, WELCOME_INFO_MODAL_MS);
+        }
+    });
     // useEffect(() => {
     //     DISCOURAGE_INAPP_BROWSERS &&
     //         isInAppBrowser() &&
