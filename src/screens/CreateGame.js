@@ -12,7 +12,7 @@ import { NEW_CHALLENGE, MAX_CHALLENGES, REVEAL_TIME_MS, LONG_ALERT_TIME_MS } fro
 import { CORRECT_WORD_MESSAGE, GAME_COPIED_MESSAGE, GAME_TITLE, NOT_ENOUGH_LETTERS_MESSAGE, SHARE_FAILURE_TEXT, WORD_NOT_FOUND_MESSAGE, SHARE_GAME_MODAL_WORD } from '../constants/strings';
 import { useAlert } from '../context/AlertContext';
 import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage } from '../lib/localStorage';
-import { findFirstUnusedReveal, getIsLatestGame, isWinningWord, isWordInWordList, unicodeLength } from '../lib/words';
+// import { findFirstUnusedReveal, getIsLatestGame, isWinningWord, isWordInWordList, unicodeLength } from '../lib/words';
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { StatsModal } from '../components/modals/StatsModal';
 import { ShareGameModal } from '../components/modals/ShareGameModal';
@@ -64,7 +64,7 @@ const CreateGame = () => {
         // }
         // return loaded.guesses;
     // });
-    const isLatestGame = getIsLatestGame();
+    // const isLatestGame = getIsLatestGame();
     const [isGameWon, setIsGameWon] = useState(false);
 
     const [currentGuess, setCurrentGuess] = useState('');
@@ -79,18 +79,18 @@ const CreateGame = () => {
 
     // const currentword = searchParams.get('currentword');
     // const queryParams = queryString.parse(window);
-    const onChar = (value) => {
+  //   const onChar = (value) => {
    
-      if (unicodeLength(`${currentGuess}${value}`) <= 5 &&
-          guesses.length < MAX_CHALLENGES &&
-          !isGameWon) {
+  //     if (unicodeLength(`${currentGuess}${value}`) <= 5 &&
+  //         guesses.length < MAX_CHALLENGES &&
+  //         !isGameWon) {
 
-          setCurrentGuess(`${currentGuess}${value}`);
-          setGuesses([...guesses, currentGuess]);
+  //         setCurrentGuess(`${currentGuess}${value}`);
+  //         setGuesses([...guesses, currentGuess]);
        
 
-      }
-  };
+  //     }
+  // };
   const onDelete = () => {
   
     setCurrentGuess(new GraphemeSplitter().splitGraphemes(currentGuess).slice(0, -1).join(''));
@@ -221,7 +221,7 @@ const handleShareToClipboard = () => {
                      solution={currentGuess} 
                      guesses={guesses} 
                      gameStats={stats} 
-                     isLatestGame={isLatestGame} 
+                    //  isLatestGame={isLatestGame} 
                      isGameLost={isGameLost} 
                      isGameWon={isGameWon} 
                      handleShareToClipboard={() => showSuccessAlert(GAME_COPIED_MESSAGE)} 
