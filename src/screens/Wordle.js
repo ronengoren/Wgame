@@ -105,22 +105,22 @@ function Wordle() {
         setIsDarkMode(isDark);
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     };
-    // const handleHardMode = (isHard) => {
-    //     if (guesses.length === 0 || localStorage.getItem('gameMode') === 'hard') {
-    //         setIsHardMode(isHard);
-    //         localStorage.setItem('gameMode', isHard ? 'hard' : 'normal');
-    //     }
-    //     else {
-    //         showErrorAlert(HARD_MODE_ALERT_MESSAGE);
-    //     }
-    // };
-    // const handleHighContrastMode = (isHighContrast) => {
-    //     setIsHighContrastMode(isHighContrast);
-    //     setStoredIsHighContrastMode(isHighContrast);
-    // };
-    // const clearCurrentRowClass = () => {
-    //     setCurrentRowClass('');
-    // };
+    const handleHardMode = (isHard) => {
+        if (guesses.length === 0 || localStorage.getItem('gameMode') === 'hard') {
+            setIsHardMode(isHard);
+            localStorage.setItem('gameMode', isHard ? 'hard' : 'normal');
+        }
+        else {
+            showErrorAlert(HARD_MODE_ALERT_MESSAGE);
+        }
+    };
+    const handleHighContrastMode = (isHighContrast) => {
+        setIsHighContrastMode(isHighContrast);
+        setStoredIsHighContrastMode(isHighContrast);
+    };
+    const clearCurrentRowClass = () => {
+        setCurrentRowClass('');
+    };
     useEffect(() => {
         saveGameStateToLocalStorage(getIsLatestGame(), { guesses, solution });
     }, [guesses]);
