@@ -53,18 +53,18 @@ function Wordle() {
         console.log('isLatestGame');
         console.log(isLatestGame);
 
-        console.log("loaded");
-        console.log(loaded.solution);
+      
 
         if (!loaded.solution) {
             return [];
 
         }
 
+        console.log("loaded");
+        console.log(loaded.solution);
 
 
-
-        // const gameWasWon = loaded.guesses.includes(solution);
+        const gameWasWon = loaded.guesses.includes(solution);
         // console.log("gameWasWon");
         // console.log(gameWasWon);
 
