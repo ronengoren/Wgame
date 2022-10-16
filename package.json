@@ -1,7 +1,7 @@
 {
     "name": "wordgame",
     "version": "0.1.0",
-    "homepage": "https://ronengoren.com/Wgame/",
+    "homepage": "http://ronengoren.github.io/Wgame",
     "private": true,
     "dependencies": {
         "@headlessui/react": "^1.7.3",
