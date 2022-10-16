@@ -1,22 +1,18 @@
 import queryString from 'query-string';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import Div100vh from 'react-div-100vh';
-import { useSearchParams } from 'react-router-dom';
 import { default as GraphemeSplitter } from 'grapheme-splitter';
 
 import { NewWord } from '../components/newWord/NewWord';
-import { CreateGameKeyboard } from '../components/keyboard/CreateGameKeyboard';
 import { Navbar } from '../components/navbar/Navbar';
-import { NEW_CHALLENGE, MAX_CHALLENGES, REVEAL_TIME_MS, LONG_ALERT_TIME_MS } from '../constants/settings';
-import { CORRECT_WORD_MESSAGE, GAME_COPIED_MESSAGE, GAME_TITLE, NOT_ENOUGH_LETTERS_MESSAGE, SHARE_FAILURE_TEXT, WORD_NOT_FOUND_MESSAGE, SHARE_GAME_MODAL_WORD } from '../constants/strings';
+
+import {  GAME_COPIED_MESSAGE, SHARE_GAME_MODAL_WORD } from '../constants/strings';
 import { useAlert } from '../context/AlertContext';
-import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage } from '../lib/localStorage';
+import { getStoredIsHighContrastMode } from '../lib/localStorage';
 // import { findFirstUnusedReveal, getIsLatestGame, isWinningWord, isWordInWordList, unicodeLength } from '../lib/words';
-import { addStatsForCompletedGame, loadStats } from '../lib/stats';
-import { StatsModal } from '../components/modals/StatsModal';
+import { loadStats } from '../lib/stats';
 import { ShareGameModal } from '../components/modals/ShareGameModal';
-import { shareStatus } from '../lib/share';
 import { shareWord } from '../lib/shareWord';
 
 const CreateGame = () => {

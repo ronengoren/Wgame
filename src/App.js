@@ -7,7 +7,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import CreateGame from './screens/CreateGame';
 import Home from './screens/Home';
-import SharedWordls from './screens/SharedWordls';
+// import SharedWordls from './screens/SharedWordls';
 // import Wordle from './screens/Wordle';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
             <Routes>
                 <Route path="/Wgame" element={<Home />} />
                 {/* <Route path="/wordle" element={<Wordle />} /> */}
-                <Route path="/create_game" element={<CreateGame />} />
+                {/* <Route path="/create_game" element={<CreateGame />} /> */}
                 <Route path="/user_wordles" element={<SharedWordls />} />
             </Routes>
         </Router>

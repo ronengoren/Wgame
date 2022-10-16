@@ -19,7 +19,6 @@ import {
     STATISTICS_TITLE,
 } from '../../constants/strings';
 import { shareStatus } from '../../lib/share';
-import { solutionGameDate, tomorrow } from '../../lib/words';
 import { Histogram } from '../stats/Histogram';
 import { MigrationIntro } from '../stats/MigrationIntro';
 import { ShareGameIntro } from '../stats/ShareGameIntro';
