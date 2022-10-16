@@ -1,7 +1,7 @@
 {
   "main.css": "/Wgame/static/css/main.7e9b01c7.chunk.css",
-  "main.js": "/Wgame/static/js/main.97c77a04.chunk.js",
-  "main.js.map": "/Wgame/static/js/main.97c77a04.chunk.js.map",
+  "main.js": "/Wgame/static/js/main.c1b340fa.chunk.js",
+  "main.js.map": "/Wgame/static/js/main.c1b340fa.chunk.js.map",
   "static/js/1.21cce734.chunk.js": "/Wgame/static/js/1.21cce734.chunk.js",
   "static/js/1.21cce734.chunk.js.map": "/Wgame/static/js/1.21cce734.chunk.js.map",
   "static/js/2.5f5e0f6f.chunk.js": "/Wgame/static/js/2.5f5e0f6f.chunk.js",
@@ -10,6 +10,6 @@
   "runtime~main.js.map": "/Wgame/static/js/runtime~main.8ef995f0.js.map",
   "static/css/main.7e9b01c7.chunk.css.map": "/Wgame/static/css/main.7e9b01c7.chunk.css.map",
   "index.html": "/Wgame/index.html",
-  "precache-manifest.e4bffeb7dc00c0383412e11f39a44129.js": "/Wgame/precache-manifest.e4bffeb7dc00c0383412e11f39a44129.js",
+  "precache-manifest.263b73b47ab4a41c0e75eebebfc8adcc.js": "/Wgame/precache-manifest.263b73b47ab4a41c0e75eebebfc8adcc.js",
   "service-worker.js": "/Wgame/service-worker.js"
 }
