@@ -25,9 +25,9 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle1=============================');
-  console.log('Wordle1');
-  console.log('==========Wordle1==========================');
+  console.log('=======Wordle2=============================');
+  console.log('Wordle2');
+  console.log('==========Wordle2==========================');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -70,141 +70,141 @@ function Wordle() {
     const [isHardMode, setIsHardMode] = useState(localStorage.getItem('gameMode')
         ? localStorage.getItem('gameMode') === 'hard'
         : false);
-    useEffect(() => {
-        // if no game state on load,
-        // show the user the how-to info modal
-        if (!loadGameStateFromLocalStorage(true)) {
-            setTimeout(() => {
-                setIsInfoModalOpen(true);
-            }, WELCOME_INFO_MODAL_MS);
-        }
-    });
-    useEffect(() => {
-        DISCOURAGE_INAPP_BROWSERS &&
-            isInAppBrowser() &&
-            showErrorAlert(DISCOURAGE_INAPP_BROWSER_TEXT, {
-                persist: false,
-                durationMs: 7000,
-            });
-    }, [showErrorAlert]);
-    useEffect(() => {
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark');
-        }
-        else {
-            document.documentElement.classList.remove('dark');
-        }
-        if (isHighContrastMode) {
-            document.documentElement.classList.add('high-contrast');
-        }
-        else {
-            document.documentElement.classList.remove('high-contrast');
-        }
-    }, [isDarkMode, isHighContrastMode]);
-    const handleDarkMode = (isDark) => {
-        setIsDarkMode(isDark);
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    };
-    const handleHardMode = (isHard) => {
-        if (guesses.length === 0 || localStorage.getItem('gameMode') === 'hard') {
-            setIsHardMode(isHard);
-            localStorage.setItem('gameMode', isHard ? 'hard' : 'normal');
-        }
-        else {
-            showErrorAlert(HARD_MODE_ALERT_MESSAGE);
-        }
-    };
-    const handleHighContrastMode = (isHighContrast) => {
-        setIsHighContrastMode(isHighContrast);
-        setStoredIsHighContrastMode(isHighContrast);
-    };
-    const clearCurrentRowClass = () => {
-        setCurrentRowClass('');
-    };
-    useEffect(() => {
-        saveGameStateToLocalStorage(getIsLatestGame(), { guesses, solution });
-    }, [guesses]);
-    useEffect(() => {
-        if (isGameWon) {
-            const winMessage = WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)];
-            const delayMs = REVEAL_TIME_MS * solution.length;
-            showSuccessAlert(winMessage, {
-                delayMs,
-                onClose: () => setIsStatsModalOpen(true),
-            });
-        }
-        if (isGameLost) {
-            setTimeout(() => {
-                setIsStatsModalOpen(true);
-            }, (solution.length + 1) * REVEAL_TIME_MS);
-        }
-    }, [isGameWon, isGameLost, showSuccessAlert]);
-    const onChar = (value) => {
-        if (unicodeLength(`${currentGuess}${value}`) <= solution.length &&
-            guesses.length < MAX_CHALLENGES &&
-            !isGameWon) {
-            setCurrentGuess(`${currentGuess}${value}`);
-        }
-    };
-    const onDelete = () => {
-        setCurrentGuess(new GraphemeSplitter().splitGraphemes(currentGuess).slice(0, -1).join(''));
-    };
-    const onEnter = () => {
-        if (isGameWon || isGameLost) {
-            return;
-        }
-        if (!(unicodeLength(currentGuess) === solution.length)) {
-            setCurrentRowClass('jiggle');
-            return showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE, {
-                onClose: clearCurrentRowClass,
-            });
-        }
-        if (!isWordInWordList(currentGuess)) {
-            setCurrentRowClass('jiggle');
-            return showErrorAlert(WORD_NOT_FOUND_MESSAGE, {
-                onClose: clearCurrentRowClass,
-            });
-        }
-        // enforce hard mode - all guesses must contain all previously revealed letters
-        if (isHardMode) {
-            const firstMissingReveal = findFirstUnusedReveal(currentGuess, guesses);
-            if (firstMissingReveal) {
-                setCurrentRowClass('jiggle');
-                return showErrorAlert(firstMissingReveal, {
-                    onClose: clearCurrentRowClass,
-                });
-            }
-        }
-        setIsRevealing(true);
-        // turn this back off after all
-        // chars have been revealed
-        setTimeout(() => {
-            setIsRevealing(false);
-        }, REVEAL_TIME_MS * solution.length);
-        const winningWord = isWinningWord(currentGuess);
-        if (unicodeLength(currentGuess) === solution.length &&
-            guesses.length < MAX_CHALLENGES &&
-            !isGameWon) {
-            setGuesses([...guesses, currentGuess]);
-            setCurrentGuess('');
-            if (winningWord) {
-                if (isLatestGame) {
-                    setStats(addStatsForCompletedGame(stats, guesses.length));
-                }
-                return setIsGameWon(true);
-            }
-            if (guesses.length === MAX_CHALLENGES - 1) {
-                if (isLatestGame) {
-                    setStats(addStatsForCompletedGame(stats, guesses.length + 1));
-                }
-                setIsGameLost(true);
-                showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
-                    persist: true,
-                    delayMs: REVEAL_TIME_MS * solution.length + 1,
-                });
-            }
-        }
-    };
+    // useEffect(() => {
+    //     // if no game state on load,
+    //     // show the user the how-to info modal
+    //     if (!loadGameStateFromLocalStorage(true)) {
+    //         setTimeout(() => {
+    //             setIsInfoModalOpen(true);
+    //         }, WELCOME_INFO_MODAL_MS);
+    //     }
+    // });
+    // useEffect(() => {
+    //     DISCOURAGE_INAPP_BROWSERS &&
+    //         isInAppBrowser() &&
+    //         showErrorAlert(DISCOURAGE_INAPP_BROWSER_TEXT, {
+    //             persist: false,
+    //             durationMs: 7000,
+    //         });
+    // }, [showErrorAlert]);
+    // useEffect(() => {
+    //     if (isDarkMode) {
+    //         document.documentElement.classList.add('dark');
+    //     }
+    //     else {
+    //         document.documentElement.classList.remove('dark');
+    //     }
+    //     if (isHighContrastMode) {
+    //         document.documentElement.classList.add('high-contrast');
+    //     }
+    //     else {
+    //         document.documentElement.classList.remove('high-contrast');
+    //     }
+    // }, [isDarkMode, isHighContrastMode]);
+    // const handleDarkMode = (isDark) => {
+    //     setIsDarkMode(isDark);
+    //     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    // };
+    // const handleHardMode = (isHard) => {
+    //     if (guesses.length === 0 || localStorage.getItem('gameMode') === 'hard') {
+    //         setIsHardMode(isHard);
+    //         localStorage.setItem('gameMode', isHard ? 'hard' : 'normal');
+    //     }
+    //     else {
+    //         showErrorAlert(HARD_MODE_ALERT_MESSAGE);
+    //     }
+    // };
+    // const handleHighContrastMode = (isHighContrast) => {
+    //     setIsHighContrastMode(isHighContrast);
+    //     setStoredIsHighContrastMode(isHighContrast);
+    // };
+    // const clearCurrentRowClass = () => {
+    //     setCurrentRowClass('');
+    // };
+    // useEffect(() => {
+    //     saveGameStateToLocalStorage(getIsLatestGame(), { guesses, solution });
+    // }, [guesses]);
+    // useEffect(() => {
+    //     if (isGameWon) {
+    //         const winMessage = WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)];
+    //         const delayMs = REVEAL_TIME_MS * solution.length;
+    //         showSuccessAlert(winMessage, {
+    //             delayMs,
+    //             onClose: () => setIsStatsModalOpen(true),
+    //         });
+    //     }
+    //     if (isGameLost) {
+    //         setTimeout(() => {
+    //             setIsStatsModalOpen(true);
+    //         }, (solution.length + 1) * REVEAL_TIME_MS);
+    //     }
+    // }, [isGameWon, isGameLost, showSuccessAlert]);
+    // const onChar = (value) => {
+    //     if (unicodeLength(`${currentGuess}${value}`) <= solution.length &&
+    //         guesses.length < MAX_CHALLENGES &&
+    //         !isGameWon) {
+    //         setCurrentGuess(`${currentGuess}${value}`);
+    //     }
+    // };
+    // const onDelete = () => {
+    //     setCurrentGuess(new GraphemeSplitter().splitGraphemes(currentGuess).slice(0, -1).join(''));
+    // };
+    // const onEnter = () => {
+    //     if (isGameWon || isGameLost) {
+    //         return;
+    //     }
+    //     if (!(unicodeLength(currentGuess) === solution.length)) {
+    //         setCurrentRowClass('jiggle');
+    //         return showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE, {
+    //             onClose: clearCurrentRowClass,
+    //         });
+    //     }
+    //     if (!isWordInWordList(currentGuess)) {
+    //         setCurrentRowClass('jiggle');
+    //         return showErrorAlert(WORD_NOT_FOUND_MESSAGE, {
+    //             onClose: clearCurrentRowClass,
+    //         });
+    //     }
+    //     // enforce hard mode - all guesses must contain all previously revealed letters
+    //     if (isHardMode) {
+    //         const firstMissingReveal = findFirstUnusedReveal(currentGuess, guesses);
+    //         if (firstMissingReveal) {
+    //             setCurrentRowClass('jiggle');
+    //             return showErrorAlert(firstMissingReveal, {
+    //                 onClose: clearCurrentRowClass,
+    //             });
+    //         }
+    //     }
+    //     setIsRevealing(true);
+    //     // turn this back off after all
+    //     // chars have been revealed
+    //     setTimeout(() => {
+    //         setIsRevealing(false);
+    //     }, REVEAL_TIME_MS * solution.length);
+    //     const winningWord = isWinningWord(currentGuess);
+    //     if (unicodeLength(currentGuess) === solution.length &&
+    //         guesses.length < MAX_CHALLENGES &&
+    //         !isGameWon) {
+    //         setGuesses([...guesses, currentGuess]);
+    //         setCurrentGuess('');
+    //         if (winningWord) {
+    //             if (isLatestGame) {
+    //                 setStats(addStatsForCompletedGame(stats, guesses.length));
+    //             }
+    //             return setIsGameWon(true);
+    //         }
+    //         if (guesses.length === MAX_CHALLENGES - 1) {
+    //             if (isLatestGame) {
+    //                 setStats(addStatsForCompletedGame(stats, guesses.length + 1));
+    //             }
+    //             setIsGameLost(true);
+    //             showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
+    //                 persist: true,
+    //                 delayMs: REVEAL_TIME_MS * solution.length + 1,
+    //             });
+    //         }
+    //     }
+    // };
     return (
         <Div100vh>
             <h1>wordle</h1>
