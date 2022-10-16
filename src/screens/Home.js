@@ -20,6 +20,7 @@ const Home = () => {
   const [isDatePickerModalOpen, setIsDatePickerModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [sentWords, setSentWords] = useState([]);
+  let getword;
   // const splitGuess = unicodeSplit(guess);
   const animationDelay = `${ 0 * REVEAL_TIME_MS }ms`;
 
@@ -108,7 +109,7 @@ const Home = () => {
 
           </div>)) : null} */}
 
-        <Link to="/wordle">Wordle</Link>
+        <Link to={`/wordle?getword=${getword}`}>Wordle</Link>
 
       </div>
 
