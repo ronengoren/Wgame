@@ -25,8 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle8=============================');
-  console.log('Wordle8');
+  console.log('=======Wordle9=============================');
+  console.log('Wordle9');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -101,10 +101,10 @@ function Wordle() {
             document.documentElement.classList.remove('high-contrast');
         }
     }, [isDarkMode, isHighContrastMode]);
-    // const handleDarkMode = (isDark) => {
-    //     setIsDarkMode(isDark);
-    //     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    // };
+    const handleDarkMode = (isDark) => {
+        setIsDarkMode(isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    };
     // const handleHardMode = (isHard) => {
     //     if (guesses.length === 0 || localStorage.getItem('gameMode') === 'hard') {
     //         setIsHardMode(isHard);
@@ -121,9 +121,9 @@ function Wordle() {
     // const clearCurrentRowClass = () => {
     //     setCurrentRowClass('');
     // };
-    // useEffect(() => {
-    //     saveGameStateToLocalStorage(getIsLatestGame(), { guesses, solution });
-    // }, [guesses]);
+    useEffect(() => {
+        saveGameStateToLocalStorage(getIsLatestGame(), { guesses, solution });
+    }, [guesses]);
     // useEffect(() => {
     //     if (isGameWon) {
     //         const winMessage = WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)];
