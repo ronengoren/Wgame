@@ -167,7 +167,7 @@ const clearCurrentRowClass = () => {
 };
 
 const handleShare = () => {
-  const baseURL = `http://localhost:3000/wordle?currentword=${currentGuess}`
+  const baseURL = `http://ronengoren/wordle?currentword=${currentGuess}`
   // shareWord(solution, guesses, isGameLost, isHardMode, isDarkMode, isHighContrastMode, baseURL);
    shareWord(baseURL,handleShareFailure,handleShareToClipboard);
 

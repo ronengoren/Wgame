@@ -16,13 +16,13 @@ export const ShareGameIntro = ({ handleShare,word }) => {
 
     const [copyButtonText, setCopyButtonText] = useState('Copy');
     const [isCopyButtonEnabled, setIsCopyButtonEnabled] = useState(true);
-    const baseURL = `http://localhost:3000/wordle?currentword=${word}`
+    const baseURL = `http://ronengoren/wordle?currentword=${word}`
     const shareStats = {
       url: baseURL,
   };
     const copyEmigrationCodeToClipboard = () => {
       var encodedData = window.btoa(word);
-      const encrypt = `http://localhost:3000/wordle?getword=${encodedData}`
+      const encrypt = `http://ronengoren/wordle?getword=${encodedData}`
       copyTextToClipboard(encrypt);
       setCopyButtonText('Copied!');
       setIsCopyButtonEnabled(false);

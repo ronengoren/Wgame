@@ -27,7 +27,7 @@ export const Navbar = ({
                         />
                     )}
                 </div>
-                <Link to="/">
+                <Link to="/Wgame">
                     <p className="text-xl font-bold dark:text-white">
                         {GAME_TITLE}
                     </p>
