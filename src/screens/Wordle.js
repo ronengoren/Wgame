@@ -25,9 +25,9 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle5=============================');
-  console.log('Wordle5');
-  console.log('==========Wordle5==========================');
+  console.log('=======Wordle6=============================');
+  console.log('Wordle6');
+  console.log('==========Wordle6==========================');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -212,14 +212,14 @@ function Wordle() {
       <div className="flex h-full flex-col">
         <Navbar setIsInfoModalOpen={setIsInfoModalOpen} setIsStatsModalOpen={setIsStatsModalOpen} setIsDatePickerModalOpen={setIsDatePickerModalOpen} setIsSettingsModalOpen={setIsSettingsModalOpen}/>
 
-        {/* {!isLatestGame && (<div className="flex items-center justify-center">
+        {!isLatestGame && (<div className="flex items-center justify-center">
             <ClockIcon className="h-6 w-6 stroke-gray-600 dark:stroke-gray-300"/>
             <p className="text-base text-gray-600 dark:text-gray-300">
               {format(gameDate, 'd MMMM yyyy', { locale: DATE_LOCALE })}
             </p>
           </div>)}
 
-        <div className="mx-auto flex w-full grow flex-col px-1 pt-2 pb-8 sm:px-6 md:max-w-7xl lg:px-8 short:pb-2 short:pt-2">
+        {/* <div className="mx-auto flex w-full grow flex-col px-1 pt-2 pb-8 sm:px-6 md:max-w-7xl lg:px-8 short:pb-2 short:pt-2">
           <div className="flex grow flex-col justify-center pb-6 short:pb-2">
             <Grid solution={solution} guesses={guesses} currentGuess={currentGuess} isRevealing={isRevealing} currentRowClassName={currentRowClass}/>
           </div>
