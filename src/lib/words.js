@@ -119,11 +119,21 @@ export const getWordOfDay = (index) => {
    return;
   }
  
-  
+  console.log('=====queryString===============================');
+  console.log(queryString);
+  console.log('====================================');
   const urlParams = new URLSearchParams(queryString);
+  console.log('=====urlParams===============================');
+  console.log(urlParams);
+  console.log('====================================');
   const currentEncWord = urlParams.get('getword')
+  console.log('=====currentEncWord===============================');
+  console.log(currentEncWord);
+  console.log('====================================');
   var decodedData = window.atob(currentEncWord); // decode the string
-
+  console.log('=====decodedData===============================');
+  console.log(decodedData);
+  console.log('====================================');
 
   
 let WordBefore = WORD.length
