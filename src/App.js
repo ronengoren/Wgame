@@ -15,7 +15,10 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/Wgame" element={<Home />} />
-                <Route path="/wordle" element={<Wordle />} />
+                <Route
+                    path={`/wordle?getword=${'RONEN'}`}
+                    element={<Wordle />}
+                />
                 <Route path="/create_game" element={<CreateGame />} />
                 <Route path="/user_wordles" element={<SharedWordls />} />
             </Routes>
