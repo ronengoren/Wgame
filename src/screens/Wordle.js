@@ -25,8 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle9=============================');
-  console.log('Wordle9');
+  console.log('=======Wordle10=============================');
+  console.log('Wordle10');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -124,21 +124,21 @@ function Wordle() {
     useEffect(() => {
         saveGameStateToLocalStorage(getIsLatestGame(), { guesses, solution });
     }, [guesses]);
-    // useEffect(() => {
-    //     if (isGameWon) {
-    //         const winMessage = WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)];
-    //         const delayMs = REVEAL_TIME_MS * solution.length;
-    //         showSuccessAlert(winMessage, {
-    //             delayMs,
-    //             onClose: () => setIsStatsModalOpen(true),
-    //         });
-    //     }
-    //     if (isGameLost) {
-    //         setTimeout(() => {
-    //             setIsStatsModalOpen(true);
-    //         }, (solution.length + 1) * REVEAL_TIME_MS);
-    //     }
-    // }, [isGameWon, isGameLost, showSuccessAlert]);
+    useEffect(() => {
+        if (isGameWon) {
+            const winMessage = WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)];
+            const delayMs = REVEAL_TIME_MS * solution.length;
+            showSuccessAlert(winMessage, {
+                delayMs,
+                onClose: () => setIsStatsModalOpen(true),
+            });
+        }
+        if (isGameLost) {
+            setTimeout(() => {
+                setIsStatsModalOpen(true);
+            }, (solution.length + 1) * REVEAL_TIME_MS);
+        }
+    }, [isGameWon, isGameLost, showSuccessAlert]);
     // const onChar = (value) => {
     //     if (unicodeLength(`${currentGuess}${value}`) <= solution.length &&
     //         guesses.length < MAX_CHALLENGES &&
