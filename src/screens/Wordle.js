@@ -25,8 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-    console.log('======Wordle22=============================');
-    console.log('Wordle22');
+    console.log('======Wordle23=============================');
+    console.log('Wordle23');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -217,10 +217,10 @@ function Wordle() {
                     </p>
                 </div>)}
 
-                {/* <div className="mx-auto flex w-full grow flex-col px-1 pt-2 pb-8 sm:px-6 md:max-w-7xl lg:px-8 short:pb-2 short:pt-2">
-          <div className="flex grow flex-col justify-center pb-6 short:pb-2">
+                <div className="mx-auto flex w-full grow flex-col px-1 pt-2 pb-8 sm:px-6 md:max-w-7xl lg:px-8 short:pb-2 short:pt-2">
+          {/* <div className="flex grow flex-col justify-center pb-6 short:pb-2">
             <Grid solution={solution} guesses={guesses} currentGuess={currentGuess} isRevealing={isRevealing} currentRowClassName={currentRowClass}/>
-          </div>
+          </div> */}
           <Keyboard onChar={onChar} onDelete={onDelete} onEnter={onEnter} solution={solution} guesses={guesses} isRevealing={isRevealing}/>
           <InfoModal isOpen={isInfoModalOpen} handleClose={() => setIsInfoModalOpen(false)}/>
           <StatsModal isOpen={isStatsModalOpen} handleClose={() => setIsStatsModalOpen(false)} solution={solution} guesses={guesses} gameStats={stats} isLatestGame={isLatestGame} isGameLost={isGameLost} isGameWon={isGameWon} handleShareToClipboard={() => showSuccessAlert(GAME_COPIED_MESSAGE)} handleShareFailure={() => showErrorAlert(SHARE_FAILURE_TEXT, {
@@ -236,7 +236,7 @@ function Wordle() {
           <MigrateStatsModal isOpen={isMigrateStatsModalOpen} handleClose={() => setIsMigrateStatsModalOpen(false)}/>
           <SettingsModal isOpen={isSettingsModalOpen} handleClose={() => setIsSettingsModalOpen(false)} isHardMode={isHardMode} handleHardMode={handleHardMode} isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} isHighContrastMode={isHighContrastMode} handleHighContrastMode={handleHighContrastMode}/>
           <AlertContainer />
-        </div> */}
+        </div>
             </div>
         </Div100vh>
     );
