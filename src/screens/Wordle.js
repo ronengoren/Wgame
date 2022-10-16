@@ -25,7 +25,7 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-    console.log('======Wordle25=============================');
+    console.log('======Wordle26=============================');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -232,8 +232,8 @@ function Wordle() {
                         setIsDatePickerModalOpen(false);
                         setGameDate(d);
                     }} handleClose={() => setIsDatePickerModalOpen(false)} />
-                    <MigrateStatsModal isOpen={isMigrateStatsModalOpen} handleClose={() => setIsMigrateStatsModalOpen(false)} />
-                    <SettingsModal isOpen={isSettingsModalOpen} handleClose={() => setIsSettingsModalOpen(false)} isHardMode={isHardMode} handleHardMode={handleHardMode} isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} isHighContrastMode={isHighContrastMode} handleHighContrastMode={handleHighContrastMode} /> */}
+                    <MigrateStatsModal isOpen={isMigrateStatsModalOpen} handleClose={() => setIsMigrateStatsModalOpen(false)} /> */}
+                    <SettingsModal isOpen={isSettingsModalOpen} handleClose={() => setIsSettingsModalOpen(false)} isHardMode={isHardMode} handleHardMode={handleHardMode} isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} isHighContrastMode={isHighContrastMode} handleHighContrastMode={handleHighContrastMode} />
                     <AlertContainer />
                 </div>
             </div>
