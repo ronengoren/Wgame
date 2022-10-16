@@ -4,22 +4,16 @@ import Div100vh from 'react-div-100vh';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
-import { Grid } from '../components/grid/Grid';
-import { WordsGrid } from '../components/home/WordsGrid';
 import { Navbar } from '../components/navbar/Navbar';
-import { unicodeSplit } from '../lib/words';
 import { REVEAL_TIME_MS } from '../constants/settings';
-// import { getNewWord } from '../lib/localStorage';
 
 const Home = () => {
-  console.log('=======Home33=============================');
+  console.log('=======Home35=============================');
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
   const [isDatePickerModalOpen, setIsDatePickerModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [sentWords, setSentWords] = useState([]);
-  let getword;
-  // const splitGuess = unicodeSplit(guess);
   const animationDelay = `${ 0 * REVEAL_TIME_MS }ms`;
 
   const classes = classnames(
@@ -107,7 +101,7 @@ const Home = () => {
 
           </div>)) : null} */}
 
-        <Link to={`/wordle?getword=RONEN`}>Wordle</Link>
+        {/* <Link to={`/wordle?getword=RONEN`}>Wordle</Link> */}
 
       </div>
 
