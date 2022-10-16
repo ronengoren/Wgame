@@ -25,8 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle14=============================');
-  console.log('Wordle14');
+  console.log('=======Wordle15=============================');
+  console.log('Wordle15');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -52,7 +52,7 @@ function Wordle() {
         const loaded = loadGameStateFromLocalStorage(isLatestGame);
         console.log('isLatestGame');
         console.log(isLatestGame);
-        
+
         console.log("loaded");
         console.log(loaded);
 
