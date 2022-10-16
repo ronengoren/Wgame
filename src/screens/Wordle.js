@@ -25,8 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-    console.log('======Wordle19=============================');
-    console.log('Wordle19');
+    console.log('======Wordle20=============================');
+    console.log('Wordle20');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -65,19 +65,18 @@ function Wordle() {
 
 
         const gameWasWon = loaded.guesses.includes(solution);
-        // console.log("gameWasWon");
-        // console.log(gameWasWon);
+      
 
-        // if (gameWasWon) {
-        //     setIsGameWon(true);
-        // }
-        // if (loaded.guesses.length === MAX_CHALLENGES && !gameWasWon) {
-        //     setIsGameLost(true);
-        //     showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
-        //         persist: true,
-        //     });
-        // }
-        // return loaded.guesses;
+        if (gameWasWon) {
+            setIsGameWon(true);
+        }
+        if (loaded.guesses.length === MAX_CHALLENGES && !gameWasWon) {
+            setIsGameLost(true);
+            showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
+                persist: true,
+            });
+        }
+        return loaded.guesses;
     });
     const [stats, setStats] = useState(() => loadStats());
     const [isHardMode, setIsHardMode] = useState(localStorage.getItem('gameMode')
