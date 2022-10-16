@@ -25,9 +25,9 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle2=============================');
-  console.log('Wordle2');
-  console.log('==========Wordle2==========================');
+  console.log('=======Wordle3=============================');
+  console.log('Wordle3');
+  console.log('==========Wordle3==========================');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -49,23 +49,23 @@ function Wordle() {
             : false);
     const [isHighContrastMode, setIsHighContrastMode] = useState(getStoredIsHighContrastMode());
     const [isRevealing, setIsRevealing] = useState(false);
-    const [guesses, setGuesses] = useState(() => {
-        const loaded = loadGameStateFromLocalStorage(isLatestGame);
-        if ((loaded === null || loaded === void 0 ? void 0 : loaded.solution) !== solution) {
-            return [];
-        }
-        const gameWasWon = loaded.guesses.includes(solution);
-        if (gameWasWon) {
-            setIsGameWon(true);
-        }
-        if (loaded.guesses.length === MAX_CHALLENGES && !gameWasWon) {
-            setIsGameLost(true);
-            showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
-                persist: true,
-            });
-        }
-        return loaded.guesses;
-    });
+    // const [guesses, setGuesses] = useState(() => {
+    //     const loaded = loadGameStateFromLocalStorage(isLatestGame);
+    //     if ((loaded === null || loaded === void 0 ? void 0 : loaded.solution) !== solution) {
+    //         return [];
+    //     }
+    //     const gameWasWon = loaded.guesses.includes(solution);
+    //     if (gameWasWon) {
+    //         setIsGameWon(true);
+    //     }
+    //     if (loaded.guesses.length === MAX_CHALLENGES && !gameWasWon) {
+    //         setIsGameLost(true);
+    //         showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
+    //             persist: true,
+    //         });
+    //     }
+    //     return loaded.guesses;
+    // });
     const [stats, setStats] = useState(() => loadStats());
     const [isHardMode, setIsHardMode] = useState(localStorage.getItem('gameMode')
         ? localStorage.getItem('gameMode') === 'hard'
