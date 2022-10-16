@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Div100vh from 'react-div-100vh';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-// import CreateGame from './screens/CreateGame';
+import CreateGame from './screens/CreateGame';
 import Home from './screens/Home';
 import SharedWordls from './screens/SharedWordls';
 // import Wordle from './screens/Wordle';
