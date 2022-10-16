@@ -25,7 +25,7 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-    console.log('======Wordle27=============================');
+    console.log('======Wordle28=============================');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -220,14 +220,14 @@ function Wordle() {
                     <div className="flex grow flex-col justify-center pb-6 short:pb-2">
                         {/* <Grid solution={solution} guesses={guesses} currentGuess={currentGuess} isRevealing={isRevealing} currentRowClassName={currentRowClass} /> */}
                     </div>
-                    {/* <Keyboard onChar={onChar} onDelete={onDelete} onEnter={onEnter} solution={solution} guesses={guesses} isRevealing={isRevealing} />
+                    <Keyboard onChar={onChar} onDelete={onDelete} onEnter={onEnter} solution={solution} guesses={guesses} isRevealing={isRevealing} />
                     <InfoModal isOpen={isInfoModalOpen} handleClose={() => setIsInfoModalOpen(false)} />
                     <StatsModal isOpen={isStatsModalOpen} handleClose={() => setIsStatsModalOpen(false)} solution={solution} guesses={guesses} gameStats={stats} isLatestGame={isLatestGame} isGameLost={isGameLost} isGameWon={isGameWon} handleShareToClipboard={() => showSuccessAlert(GAME_COPIED_MESSAGE)} handleShareFailure={() => showErrorAlert(SHARE_FAILURE_TEXT, {
                         durationMs: LONG_ALERT_TIME_MS,
                     })} handleMigrateStatsButton={() => {
                         setIsStatsModalOpen(false);
                         setIsMigrateStatsModalOpen(true);
-                    }} isHardMode={isHardMode} isDarkMode={isDarkMode} isHighContrastMode={isHighContrastMode} numberOfGuessesMade={guesses.length} /> */}
+                    }} isHardMode={isHardMode} isDarkMode={isDarkMode} isHighContrastMode={isHighContrastMode} numberOfGuessesMade={guesses.length} />
                     <DatePickerModal isOpen={isDatePickerModalOpen} initialDate={solutionGameDate} handleSelectDate={(d) => {
                         setIsDatePickerModalOpen(false);
                         setGameDate(d);
