@@ -11,16 +11,11 @@ import SharedWordls from './screens/SharedWordls';
 import Wordle from './screens/Wordle';
 
 function App() {
-    let getword;
-
     return (
         <Router>
             <Routes>
                 <Route path="/Wgame" element={<Home />} />
-                <Route
-                    path={`/wordle?getword=${getword}`}
-                    element={<Wordle />}
-                />
+                <Route path="/wordle" element={<Wordle />} />
                 <Route path="/create_game" element={<CreateGame />} />
                 <Route path="/user_wordles" element={<SharedWordls />} />
             </Routes>

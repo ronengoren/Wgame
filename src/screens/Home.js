@@ -109,7 +109,7 @@ const Home = () => {
 
           </div>)) : null} */}
 
-        <Link to={`/wordle?getword=${getword}`}>Wordle</Link>
+        <Link to={`/wordle`}>Wordle</Link>
 
       </div>
 
