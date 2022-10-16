@@ -25,7 +25,7 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-    console.log('======Wordle26=============================');
+    console.log('======Wordle27=============================');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -227,12 +227,12 @@ function Wordle() {
                     })} handleMigrateStatsButton={() => {
                         setIsStatsModalOpen(false);
                         setIsMigrateStatsModalOpen(true);
-                    }} isHardMode={isHardMode} isDarkMode={isDarkMode} isHighContrastMode={isHighContrastMode} numberOfGuessesMade={guesses.length} />
+                    }} isHardMode={isHardMode} isDarkMode={isDarkMode} isHighContrastMode={isHighContrastMode} numberOfGuessesMade={guesses.length} /> */}
                     <DatePickerModal isOpen={isDatePickerModalOpen} initialDate={solutionGameDate} handleSelectDate={(d) => {
                         setIsDatePickerModalOpen(false);
                         setGameDate(d);
                     }} handleClose={() => setIsDatePickerModalOpen(false)} />
-                    <MigrateStatsModal isOpen={isMigrateStatsModalOpen} handleClose={() => setIsMigrateStatsModalOpen(false)} /> */}
+                    <MigrateStatsModal isOpen={isMigrateStatsModalOpen} handleClose={() => setIsMigrateStatsModalOpen(false)} />
                     <SettingsModal isOpen={isSettingsModalOpen} handleClose={() => setIsSettingsModalOpen(false)} isHardMode={isHardMode} handleHardMode={handleHardMode} isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} isHighContrastMode={isHighContrastMode} handleHighContrastMode={handleHighContrastMode} />
                     <AlertContainer />
                 </div>
