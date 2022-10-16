@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9625be3e4e6bc51c5d1a",
+    "revision": "fb4cd3cda0518db00fda",
     "url": "/Wgame/static/css/main.7e9b01c7.chunk.css"
   },
   {
-    "revision": "9625be3e4e6bc51c5d1a",
-    "url": "/Wgame/static/js/main.9625be3e.chunk.js"
+    "revision": "fb4cd3cda0518db00fda",
+    "url": "/Wgame/static/js/main.fb4cd3cd.chunk.js"
   },
   {
     "revision": "21cce7341b4f836f50f8",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Wgame/static/js/runtime~main.8ef995f0.js"
   },
   {
-    "revision": "e6a1e84e47995b9d7146fce25e8e8f63",
+    "revision": "e5c2f1bd0d8d00c0b274844f25e86185",
     "url": "/Wgame/index.html"
   }
 ];
