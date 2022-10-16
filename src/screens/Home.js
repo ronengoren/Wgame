@@ -5,16 +5,14 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { Navbar } from '../components/navbar/Navbar';
-import { REVEAL_TIME_MS } from '../constants/settings';
 
 const Home = () => {
-  console.log('=======Home35=============================');
+  console.log('=======Home36=============================');
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
   const [isDatePickerModalOpen, setIsDatePickerModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [sentWords, setSentWords] = useState([]);
-  const animationDelay = `${ 0 * REVEAL_TIME_MS }ms`;
 
   const classes = classnames(
     'xxshort:w-11 xxshort:h-11 short:text-2xl short:w-12 short:h-12 w-14 h-14 border-solid border-2 flex items-center justify-center mx-0.5 text-4xl font-bold rounded dark:text-white',
