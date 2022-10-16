@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import { Navbar } from '../components/navbar/Navbar';
 
 const Home = () => {
-  console.log('=======Home41=============================');
+  console.log('=======Home42=============================');
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
   const [isDatePickerModalOpen, setIsDatePickerModalOpen] = useState(false);
