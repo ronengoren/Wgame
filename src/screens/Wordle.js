@@ -25,8 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-    console.log('======Wordle21=============================');
-    console.log('Wordle21');
+    console.log('======Wordle22=============================');
+    console.log('Wordle22');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -145,65 +145,65 @@ function Wordle() {
             setCurrentGuess(`${currentGuess}${value}`);
         }
     };
-    // const onDelete = () => {
-    //     setCurrentGuess(new GraphemeSplitter().splitGraphemes(currentGuess).slice(0, -1).join(''));
-    // };
-    // const onEnter = () => {
-    //     if (isGameWon || isGameLost) {
-    //         return;
-    //     }
-    //     if (!(unicodeLength(currentGuess) === solution.length)) {
-    //         setCurrentRowClass('jiggle');
-    //         return showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE, {
-    //             onClose: clearCurrentRowClass,
-    //         });
-    //     }
-    //     if (!isWordInWordList(currentGuess)) {
-    //         setCurrentRowClass('jiggle');
-    //         return showErrorAlert(WORD_NOT_FOUND_MESSAGE, {
-    //             onClose: clearCurrentRowClass,
-    //         });
-    //     }
-    //     // enforce hard mode - all guesses must contain all previously revealed letters
-    //     if (isHardMode) {
-    //         const firstMissingReveal = findFirstUnusedReveal(currentGuess, guesses);
-    //         if (firstMissingReveal) {
-    //             setCurrentRowClass('jiggle');
-    //             return showErrorAlert(firstMissingReveal, {
-    //                 onClose: clearCurrentRowClass,
-    //             });
-    //         }
-    //     }
-    //     setIsRevealing(true);
-    //     // turn this back off after all
-    //     // chars have been revealed
-    //     setTimeout(() => {
-    //         setIsRevealing(false);
-    //     }, REVEAL_TIME_MS * solution.length);
-    //     const winningWord = isWinningWord(currentGuess);
-    //     if (unicodeLength(currentGuess) === solution.length &&
-    //         guesses.length < MAX_CHALLENGES &&
-    //         !isGameWon) {
-    //         setGuesses([...guesses, currentGuess]);
-    //         setCurrentGuess('');
-    //         if (winningWord) {
-    //             if (isLatestGame) {
-    //                 setStats(addStatsForCompletedGame(stats, guesses.length));
-    //             }
-    //             return setIsGameWon(true);
-    //         }
-    //         if (guesses.length === MAX_CHALLENGES - 1) {
-    //             if (isLatestGame) {
-    //                 setStats(addStatsForCompletedGame(stats, guesses.length + 1));
-    //             }
-    //             setIsGameLost(true);
-    //             showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
-    //                 persist: true,
-    //                 delayMs: REVEAL_TIME_MS * solution.length + 1,
-    //             });
-    //         }
-    //     }
-    // };
+    const onDelete = () => {
+        setCurrentGuess(new GraphemeSplitter().splitGraphemes(currentGuess).slice(0, -1).join(''));
+    };
+    const onEnter = () => {
+        if (isGameWon || isGameLost) {
+            return;
+        }
+        if (!(unicodeLength(currentGuess) === solution.length)) {
+            setCurrentRowClass('jiggle');
+            return showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE, {
+                onClose: clearCurrentRowClass,
+            });
+        }
+        if (!isWordInWordList(currentGuess)) {
+            setCurrentRowClass('jiggle');
+            return showErrorAlert(WORD_NOT_FOUND_MESSAGE, {
+                onClose: clearCurrentRowClass,
+            });
+        }
+        // enforce hard mode - all guesses must contain all previously revealed letters
+        if (isHardMode) {
+            const firstMissingReveal = findFirstUnusedReveal(currentGuess, guesses);
+            if (firstMissingReveal) {
+                setCurrentRowClass('jiggle');
+                return showErrorAlert(firstMissingReveal, {
+                    onClose: clearCurrentRowClass,
+                });
+            }
+        }
+        setIsRevealing(true);
+        // turn this back off after all
+        // chars have been revealed
+        setTimeout(() => {
+            setIsRevealing(false);
+        }, REVEAL_TIME_MS * solution.length);
+        const winningWord = isWinningWord(currentGuess);
+        if (unicodeLength(currentGuess) === solution.length &&
+            guesses.length < MAX_CHALLENGES &&
+            !isGameWon) {
+            setGuesses([...guesses, currentGuess]);
+            setCurrentGuess('');
+            if (winningWord) {
+                if (isLatestGame) {
+                    setStats(addStatsForCompletedGame(stats, guesses.length));
+                }
+                return setIsGameWon(true);
+            }
+            if (guesses.length === MAX_CHALLENGES - 1) {
+                if (isLatestGame) {
+                    setStats(addStatsForCompletedGame(stats, guesses.length + 1));
+                }
+                setIsGameLost(true);
+                showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
+                    persist: true,
+                    delayMs: REVEAL_TIME_MS * solution.length + 1,
+                });
+            }
+        }
+    };
     return (
 
         <Div100vh>
