@@ -15,9 +15,9 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/wgame" element={<Home />} />
-                <Route path="/wgame/wordle" element={<Wordle />} />
-                <Route path="/wgame/create_game" element={<CreateGame />} />
-                <Route path="/wgame/user_wordles" element={<SharedWordls />} />
+                <Route path="/wordle" element={<Wordle />} />
+                <Route path="/create_game" element={<CreateGame />} />
+                <Route path="/user_wordles" element={<SharedWordls />} />
             </Routes>
         </Router>
     );
