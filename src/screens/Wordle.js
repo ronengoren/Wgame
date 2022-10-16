@@ -25,8 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-    console.log('======Wordle20=============================');
-    console.log('Wordle20');
+    console.log('======Wordle21=============================');
+    console.log('Wordle21');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -50,23 +50,10 @@ function Wordle() {
     const [isRevealing, setIsRevealing] = useState(false);
     const [guesses, setGuesses] = useState(() => {
         const loaded = loadGameStateFromLocalStorage(isLatestGame);
-        console.log('isLatestGame');
-        console.log(isLatestGame);
-
-      
-
         if (!loaded.solution) {
             return [];
-
         }
-
-        console.log("loaded");
-        console.log(loaded.solution);
-
-
         const gameWasWon = loaded.guesses.includes(solution);
-      
-
         if (gameWasWon) {
             setIsGameWon(true);
         }
@@ -151,13 +138,13 @@ function Wordle() {
             }, (solution.length + 1) * REVEAL_TIME_MS);
         }
     }, [isGameWon, isGameLost, showSuccessAlert]);
-    // const onChar = (value) => {
-    //     if (unicodeLength(`${currentGuess}${value}`) <= solution.length &&
-    //         guesses.length < MAX_CHALLENGES &&
-    //         !isGameWon) {
-    //         setCurrentGuess(`${currentGuess}${value}`);
-    //     }
-    // };
+    const onChar = (value) => {
+        if (unicodeLength(`${currentGuess}${value}`) <= solution.length &&
+            guesses.length < MAX_CHALLENGES &&
+            !isGameWon) {
+            setCurrentGuess(`${currentGuess}${value}`);
+        }
+    };
     // const onDelete = () => {
     //     setCurrentGuess(new GraphemeSplitter().splitGraphemes(currentGuess).slice(0, -1).join(''));
     // };
