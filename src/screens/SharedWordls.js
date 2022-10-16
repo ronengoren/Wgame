@@ -72,7 +72,7 @@ const SharedWordls = () => {
 
           </div>)) : null}
 
-        <Link to="/wordle">Wordle</Link>
+        {/* <Link to="/wordle">Wordle</Link> */}
 
       </div>
 
