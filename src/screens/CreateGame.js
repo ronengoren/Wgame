@@ -207,14 +207,14 @@ const handleShareToClipboard = () => {
 
                                         </div>
                     </div>
-                    <CreateGameKeyboard 
+                    {/* <CreateGameKeyboard 
                     onChar={onChar} 
                     onDelete={onDelete} 
                     onEnter={onEnter} 
                     // solution={solution} 
                     guesses={guesses} 
                     isRevealing={isRevealing}
-                    />
+                    /> */}
                      <ShareGameModal 
                      isOpen={isShareGameModal} 
                      handleClose={() => setIsShareGameModal(false)} 
