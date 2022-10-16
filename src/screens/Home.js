@@ -12,9 +12,8 @@ import { REVEAL_TIME_MS } from '../constants/settings';
 import { getNewWord } from '../lib/localStorage';
 
 const Home = () => {
-  console.log('=======Home8=============================');
-  console.log('Home8');
-  console.log('==========Home8==========================');
+  console.log('=======Home9=============================');
+  console.log('Home9');
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
   const [isDatePickerModalOpen, setIsDatePickerModalOpen] = useState(false);

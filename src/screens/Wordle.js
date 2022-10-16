@@ -25,9 +25,8 @@ import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage, saveGameSta
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { findFirstUnusedReveal, getGameDate, getIsLatestGame, isWinningWord, isWordInWordList, setGameDate, solution, solutionGameDate, unicodeLength, } from '../lib/words';
 function Wordle() {
-  console.log('=======Wordle7=============================');
-  console.log('Wordle7');
-  console.log('==========Wordle7==========================');
+  console.log('=======Wordle8=============================');
+  console.log('Wordle8');
 
     const isLatestGame = getIsLatestGame();
     const gameDate = getGameDate();
@@ -80,28 +79,28 @@ function Wordle() {
             }, WELCOME_INFO_MODAL_MS);
         }
     });
-    // useEffect(() => {
-    //     DISCOURAGE_INAPP_BROWSERS &&
-    //         isInAppBrowser() &&
-    //         showErrorAlert(DISCOURAGE_INAPP_BROWSER_TEXT, {
-    //             persist: false,
-    //             durationMs: 7000,
-    //         });
-    // }, [showErrorAlert]);
-    // useEffect(() => {
-    //     if (isDarkMode) {
-    //         document.documentElement.classList.add('dark');
-    //     }
-    //     else {
-    //         document.documentElement.classList.remove('dark');
-    //     }
-    //     if (isHighContrastMode) {
-    //         document.documentElement.classList.add('high-contrast');
-    //     }
-    //     else {
-    //         document.documentElement.classList.remove('high-contrast');
-    //     }
-    // }, [isDarkMode, isHighContrastMode]);
+    useEffect(() => {
+        DISCOURAGE_INAPP_BROWSERS &&
+            isInAppBrowser() &&
+            showErrorAlert(DISCOURAGE_INAPP_BROWSER_TEXT, {
+                persist: false,
+                durationMs: 7000,
+            });
+    }, [showErrorAlert]);
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+        }
+        else {
+            document.documentElement.classList.remove('dark');
+        }
+        if (isHighContrastMode) {
+            document.documentElement.classList.add('high-contrast');
+        }
+        else {
+            document.documentElement.classList.remove('high-contrast');
+        }
+    }, [isDarkMode, isHighContrastMode]);
     // const handleDarkMode = (isDark) => {
     //     setIsDarkMode(isDark);
     //     localStorage.setItem('theme', isDark ? 'dark' : 'light');
