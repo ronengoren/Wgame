@@ -115,9 +115,9 @@ export const getWordOfDay = (index) => {
     throw new Error("Invalid index");
   }
   const queryString = window.location.search;
-  if (!queryString) {
-   return;
-  }
+  // if (!queryString) {
+  //  return;
+  // }
  
   console.log('=====queryString===============================');
   console.log(queryString);

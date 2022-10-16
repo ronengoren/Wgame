@@ -83,7 +83,7 @@ const Home = () => {
         </div>
        
 
-        <Link to={`/wordle`}>Wordlsdsde</Link>
+        <Link to={`/wordle`}>Wordsdsdlsdsde</Link>
 
       </div>
 
