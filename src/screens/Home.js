@@ -99,7 +99,7 @@ const Home = () => {
 
           </div>)) : null} */}
 
-        {/* <Link to={`/wordle?getword=RONEN`}>Wordle</Link> */}
+        <Link to={`/wordle?getword=RONEN`}>Wordle</Link>
 
       </div>
 
