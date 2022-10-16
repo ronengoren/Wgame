@@ -54,9 +54,9 @@ function Wordle() {
         console.log(isLatestGame);
 
         console.log("loaded");
-        console.log(loaded);
+        console.log(loaded.solution);
 
-if (loaded?.solution) {
+if (loaded.solution) {
     console.log('=====loadedloaded===============================');
     console.log(loaded);
     console.log('====================================');
