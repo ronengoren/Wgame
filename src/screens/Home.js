@@ -9,10 +9,10 @@ import { WordsGrid } from '../components/home/WordsGrid';
 import { Navbar } from '../components/navbar/Navbar';
 import { unicodeSplit } from '../lib/words';
 import { REVEAL_TIME_MS } from '../constants/settings';
-import { getNewWord } from '../lib/localStorage';
+// import { getNewWord } from '../lib/localStorage';
 
 const Home = () => {
-  console.log('=======Home30=============================');
+  console.log('=======Home31=============================');
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
   const [isDatePickerModalOpen, setIsDatePickerModalOpen] = useState(false);
@@ -42,14 +42,14 @@ const Home = () => {
     // },
   );
 
-  useEffect(() => {
-    const wordArr = getNewWord()
-    if (wordArr) {
-      setSentWords(wordArr);
+  // useEffect(() => {
+  //   const wordArr = getNewWord()
+  //   if (wordArr) {
+  //     setSentWords(wordArr);
 
-    }
+  //   }
 
-  }, []);
+  // }, []);
   return (
     <Div100vh>
       <div className="flex h-full flex-col">
