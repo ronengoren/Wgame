@@ -12,7 +12,7 @@ import { NEW_CHALLENGE, MAX_CHALLENGES, REVEAL_TIME_MS, LONG_ALERT_TIME_MS } fro
 import { CORRECT_WORD_MESSAGE, GAME_COPIED_MESSAGE, GAME_TITLE, NOT_ENOUGH_LETTERS_MESSAGE, SHARE_FAILURE_TEXT, WORD_NOT_FOUND_MESSAGE, SHARE_GAME_MODAL_WORD } from '../constants/strings';
 import { useAlert } from '../context/AlertContext';
 import { getStoredIsHighContrastMode, loadGameStateFromLocalStorage } from '../lib/localStorage';
-import { findFirstUnusedReveal, getIsLatestGame, isWinningWord, isWordInWordList, solution, unicodeLength } from '../lib/words';
+import { findFirstUnusedReveal, getIsLatestGame, isWinningWord, isWordInWordList, unicodeLength } from '../lib/words';
 import { addStatsForCompletedGame, loadStats } from '../lib/stats';
 import { StatsModal } from '../components/modals/StatsModal';
 import { ShareGameModal } from '../components/modals/ShareGameModal';
