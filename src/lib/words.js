@@ -153,6 +153,13 @@ export const getSolution = (gameDate) => {
   const index = getIndex(gameDate);
  
   const wordOfTheDay = getWordOfDay(index);
+  console.log("nextGameDate");
+  console.log(nextGameDate);
+  console.log("index");
+  console.log(index);
+  console.log("wordOfTheDay");
+  console.log(wordOfTheDay);
+
   return {
     solution: wordOfTheDay,
     solutionGameDate: gameDate,

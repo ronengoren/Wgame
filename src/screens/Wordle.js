@@ -204,7 +204,7 @@ function Wordle() {
         }
     };
 
-    console.log('======Wordle31=============================');
+    console.log('======Wordle32=============================');
     console.log('======solution=============================');
     console.log(solution)
     console.log('======guesses=============================');
