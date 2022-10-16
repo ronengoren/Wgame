@@ -50,15 +50,20 @@ function Wordle() {
     const [isRevealing, setIsRevealing] = useState(false);
     const [guesses, setGuesses] = useState(() => {
         const loaded = loadGameStateFromLocalStorage(isLatestGame);
+        console.log('isLatestGame');
+        console.log(isLatestGame);
+        
+        console.log("loaded");
+        console.log(loaded);
+
         if ((loaded === null || loaded === void 0 ? void 0 : loaded.solution) !== solution) {
             return [];
         }
 
-        console.log(loaded);
 
-        const gameWasWon = loaded.guesses.includes(solution);
-        console.log("gameWasWon");
-        console.log(gameWasWon);
+        // const gameWasWon = loaded.guesses.includes(solution);
+        // console.log("gameWasWon");
+        // console.log(gameWasWon);
 
         // if (gameWasWon) {
         //     setIsGameWon(true);
