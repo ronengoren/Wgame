@@ -58,7 +58,7 @@ const Home = () => {
           setIsSettingsModalOpen={setIsSettingsModalOpen}
         />
         <div className="flex justify-center">
-          <Link to="/create_game">
+          <Link to="/Wgame/create_game">
 
             <button
               // disabled={!isCopyButtonEnabled}
