@@ -55,7 +55,8 @@ const useQueryParam = (key) => {
 function Game() {
  
 
-    let [getWord, setGetWord] = useQueryParam("getWord");
+    // let [getWord, setGetWord] = useQueryParam("getWord");
+    let params = useParams();
 
   const isLatestGame = getIsLatestGame();
   const gameDate = getGameDate();
@@ -238,6 +239,8 @@ const [solution, setSolution] = useState('');
 useEffect(() => {
  
     const getTodayWord = GetWord();
+    console.log(getTodayWord);
+
     if (getTodayWord) {
         setSolution(getTodayWord);
     }
@@ -247,7 +250,8 @@ useEffect(() => {
 
 
 const GetWord = () => {
-        if (!getWord) {
+
+        if (!params.getword) {
             window.location = '/wgame/'
             return;
         }
@@ -256,13 +260,13 @@ const GetWord = () => {
 //         let WordBefore = WORD.length
 //         var decodedData = window.atob(word); // decode the string
 
-  WORD.push(getWord.toLowerCase())
-  WORDS.push(getWord.toLowerCase())
+  WORD.push(params.getword.toLowerCase())
+  WORDS.push(params.getword.toLowerCase())
 
 //   // if (WORD.length > WordBefore) {
 //   //   return localeAwareUpperCase(WORD[index % WORD.length]);
 //   // }
-        return getWord;
+        return params.getword;
     };
 
     return (
