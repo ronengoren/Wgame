@@ -1,6 +1,10 @@
 import { default as GraphemeSplitter } from 'grapheme-splitter';
 import queryString from 'query-string';
 import * as React from 'react';
+import {
+    useHistory,
+    useParams
+  } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import Div100vh from 'react-div-100vh';
 import { WORDS, WORD } from "../constants/wordlist";
@@ -23,6 +27,9 @@ import { AlertContainer } from '../components/alerts/AlertContainer';
 import { isInAppBrowser } from '../lib/browser';
 
 function Game() {
+    let { word } = useParams();
+
+
   const isLatestGame = getIsLatestGame();
   const gameDate = getGameDate();
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -208,15 +215,14 @@ useEffect(() => {
     }
 }, []);
 const GetWord = () => {
-        const query_String = window.location.search;
-        if (!query_String) {
+        if (!word) {
+            window.location = '/wgame/'
             return;
         }
-    
-        const urlParams = new URLSearchParams(query_String);
-        const currentEncWord = urlParams.get('getword');
+  
+     
         let WordBefore = WORD.length
-        var decodedData = window.atob(currentEncWord); // decode the string
+        var decodedData = window.atob(word); // decode the string
 
   WORD.push(decodedData.toLowerCase())
   WORDS.push(decodedData.toLowerCase())

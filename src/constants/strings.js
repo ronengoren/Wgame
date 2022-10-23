@@ -22,7 +22,7 @@ export const SHARE_GAME_MODAL_WORD = 'Choose your word!';
 export const GUESS_DISTRIBUTION_TEXT = 'Guess Distribution';
 export const NEW_WORD_TEXT = 'New word in';
 export const SHARE_TEXT = 'Share';
-export const CREATE_FROM_STAT_TEXT = 'Create';
+export const CREATE_FROM_STAT_TEXT = 'Your turn to create';
 
 export const SHARE_FAILURE_TEXT =
     'Unable to share the results. This feature is available only in secure contexts (HTTPS), in some or all supporting browsers.';
