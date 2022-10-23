@@ -15,6 +15,7 @@
         "egoroof-blowfish": "^2.2.2",
         "env-cmd": "^10.1.0",
         "grapheme-splitter": "^1.0.4",
+        "jsurl": "^0.1.5",
         "query-string": "^7.1.1",
         "react": "^18.2.0",
         "react-countdown": "^2.3.2",

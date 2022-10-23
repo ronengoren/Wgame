@@ -2,9 +2,12 @@ import { default as GraphemeSplitter } from 'grapheme-splitter';
 import queryString from 'query-string';
 import * as React from 'react';
 import {
-    useHistory,
-    useParams
+    useParams,
+    useLocation,
+    useSearchParams
   } from "react-router-dom";
+  import * as JSURL from "jsurl";
+
 import { useEffect, useState } from 'react';
 import Div100vh from 'react-div-100vh';
 import { WORDS, WORD } from "../constants/wordlist";
@@ -26,9 +29,33 @@ import { SettingsModal } from '../components/modals/SettingsModal';
 import { AlertContainer } from '../components/alerts/AlertContainer';
 import { isInAppBrowser } from '../lib/browser';
 
-function Game() {
-    let { word } = useParams();
 
+const useQueryParam = (key) => {
+   
+    let [searchParams, setSearchParams] = useSearchParams();
+    let paramValue = searchParams.get(key);
+    if (paramValue.length < 8 ) {
+        window.location = '/wgame/'
+    }
+    if (!paramValue) {
+        window.location = '/wgame/'
+    }
+ 
+    var value = window.atob(paramValue); // decode the string
+    let setValue = React.useCallback((newValue, options) => {
+        let newSearchParams = new URLSearchParams(searchParams);
+        newSearchParams.set(key, JSURL.stringify(newValue));
+        setSearchParams(newSearchParams, options);
+    }, [key, searchParams, setSearchParams]);
+    return [value, setValue];
+   
+      
+    };
+
+function Game() {
+ 
+
+    let [getWord, setGetWord] = useQueryParam("getWord");
 
   const isLatestGame = getIsLatestGame();
   const gameDate = getGameDate();
@@ -209,30 +236,33 @@ const onEnter = () => {
 const [solution, setSolution] = useState('');
     
 useEffect(() => {
+ 
     const getTodayWord = GetWord();
     if (getTodayWord) {
         setSolution(getTodayWord);
     }
 }, []);
+
+
+
+
 const GetWord = () => {
-        if (!word) {
+        if (!getWord) {
             window.location = '/wgame/'
             return;
         }
   
-     
-        let WordBefore = WORD.length
-        var decodedData = window.atob(word); // decode the string
-console.log('====================================');
-console.log(decodedData);
-console.log('====================================');
-  WORD.push(decodedData.toLowerCase())
-  WORDS.push(decodedData.toLowerCase())
+   
+//         let WordBefore = WORD.length
+//         var decodedData = window.atob(word); // decode the string
 
-  // if (WORD.length > WordBefore) {
-  //   return localeAwareUpperCase(WORD[index % WORD.length]);
-  // }
-        return decodedData;
+  WORD.push(getWord.toLowerCase())
+  WORDS.push(getWord.toLowerCase())
+
+//   // if (WORD.length > WordBefore) {
+//   //   return localeAwareUpperCase(WORD[index % WORD.length]);
+//   // }
+        return getWord;
     };
 
     return (

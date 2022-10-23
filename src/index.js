@@ -2,6 +2,7 @@ import './assets/main.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import { AlertProvider } from './context/AlertContext';
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <AlertProvider>
-            <App />
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
         </AlertProvider>
     </React.StrictMode>,
 );

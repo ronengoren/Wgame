@@ -23,7 +23,8 @@ export const ShareGameIntro = ({ handleShare,word }) => {
     const copyEmigrationCodeToClipboard = () => {
       var encodedData = window.btoa(word);
       const encrypt = `http://ronengoren.com/wgame/game?getword=${encodedData}`
-      const NEWencrypt = `http://ronengoren.com/wgame/game/${encodedData}`
+      const NEWencrypt = `http://ronengoren.com/wgame/game?getWord=${encodedData}`
+      const NEWencryptLH = `http://localhost:3000/wgame/game?getWord=${encodedData}`
       copyTextToClipboard(NEWencrypt);
       setCopyButtonText('Copied!');
       setIsCopyButtonEnabled(false);
