@@ -9,6 +9,7 @@ import { Navbar } from '../components/navbar/Navbar';
 // import { unicodeSplit } from '../lib/words';
 import { REVEAL_TIME_MS } from '../constants/settings';
 import { getNewWord } from '../lib/localStorage';
+import { unicodeSplit } from '../lib/getWord';
 
 const SharedWordls = () => {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
@@ -60,7 +61,7 @@ const SharedWordls = () => {
         <div className="flex justify-center">
           <h1>Your Wordles:</h1>
         </div>
-        {/* {sentWords ? sentWords.map((i =>
+        {sentWords ? sentWords.map((i =>
           <div key={i} className="mx-auto flex pt-2 pb-8 sm:px-6 md:max-w-7xl lg:px-8 short:pb-2 short:pt-2">
             {unicodeSplit(i).map((letter, h) => <div
               key={h}
@@ -69,7 +70,7 @@ const SharedWordls = () => {
             > <div className="letter-container" style={{ animationDelay }}> <h1>{letter}</h1> </div></div>)}
 
 
-          </div>)) : null} */}
+          </div>)) : null}
 
         {/* <Link to="/wordle">Wordle</Link> */}
 

@@ -22,7 +22,7 @@ export const ShareGameIntro = ({ handleShare,word }) => {
   };
     const copyEmigrationCodeToClipboard = () => {
       var encodedData = window.btoa(word);
-      const encrypt = `http://ronengoren.com/wgame/wordle?getword=${encodedData}`
+      const encrypt = `http://ronengoren.com/wgame/game?getword=${encodedData}`
       copyTextToClipboard(encrypt);
       setCopyButtonText('Copied!');
       setIsCopyButtonEnabled(false);

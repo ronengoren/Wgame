@@ -13,7 +13,7 @@ import {
   WRONG_SPOT_MESSAGE,
 } from "../constants/strings";
 import { VALID_GUESSES } from "../constants/validGuesses";
-import { WORDS, WORD } from "../constants/wordlist";
+import { WORDS } from "../constants/wordlist";
 import { getToday } from "./dateutils";
 import { getGuessStatuses } from "./statuses";
 // 1 January 2022 Game Epoch
@@ -110,41 +110,10 @@ export const getIndex = (gameDate) => {
   return index;
 };
 export const getWordOfDay = (index) => {
-
   if (index < 0) {
-    throw new Error("Invalid index");
+      throw new Error('Invalid index');
   }
-  const queryString = window.location.search;
-  // if (!queryString) {
-  //  return;
-  // }
- 
-  console.log('=====queryString===============================');
-  console.log(queryString);
-  console.log('====================================');
-  const urlParams = new URLSearchParams(queryString);
-  console.log('=====urlParams===============================');
-  console.log(urlParams);
-  console.log('====================================');
-  const currentEncWord = urlParams.get('getword')
-  console.log('=====currentEncWord===============================');
-  console.log(currentEncWord);
-  console.log('====================================');
-  var decodedData = window.atob(currentEncWord); // decode the string
-  console.log('=====decodedData===============================');
-  console.log(decodedData);
-  console.log('====================================');
-
-  
-let WordBefore = WORD.length
-
-  WORD.push(decodedData.toLowerCase())
-  WORDS.push(decodedData.toLowerCase())
-if (WORD.length > WordBefore) {
-  return localeAwareUpperCase(WORD[index % WORD.length]);
-}
-
- 
+  return localeAwareUpperCase(WORDS[index % WORDS.length]);
 };
 export const getSolution = (gameDate) => {
  
@@ -153,12 +122,7 @@ export const getSolution = (gameDate) => {
   const index = getIndex(gameDate);
  
   const wordOfTheDay = getWordOfDay(index);
-  console.log("nextGameDate");
-  console.log(nextGameDate);
-  console.log("index");
-  console.log(index);
-  console.log("wordOfTheDay");
-  console.log(wordOfTheDay);
+
 
   return {
     solution: wordOfTheDay,
