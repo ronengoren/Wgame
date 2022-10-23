@@ -223,7 +223,9 @@ const GetWord = () => {
      
         let WordBefore = WORD.length
         var decodedData = window.atob(word); // decode the string
-
+console.log('====================================');
+console.log(decodedData);
+console.log('====================================');
   WORD.push(decodedData.toLowerCase())
   WORDS.push(decodedData.toLowerCase())
 
