@@ -1,6 +1,6 @@
 export const GAME_TITLE = 'ברית מילה';
 
-export const WIN_MESSAGES = ['פששששש', 'מוש!', 'תראו מי זה'];
+export const WIN_MESSAGES = ['פששששש', '!מוש', 'תראו מי זה'];
 export const GAME_COPIED_MESSAGE = 'Game copied to clipboard';
 export const NOT_ENOUGH_LETTERS_MESSAGE = 'נו חסר אותיות';
 export const WORD_NOT_FOUND_MESSAGE = '...נכון יש מילה כזאת';
