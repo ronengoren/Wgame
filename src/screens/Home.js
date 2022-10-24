@@ -123,7 +123,7 @@ const handleHardMode = (isHard) => {
           disabled:bg-white disabled:text-gray-900 disabled:focus:outline-none disabled:dark:border-gray-600 disabled:dark:bg-gray-800 disabled:dark:text-gray-400 sm:text-sm"
             >
 
-              Create New Game
+             +במילה אחת 
             </button>
           </Link>
         </div>
@@ -137,7 +137,7 @@ const handleHardMode = (isHard) => {
           disabled:bg-white disabled:text-gray-900 disabled:focus:outline-none disabled:dark:border-gray-600 disabled:dark:bg-gray-800 disabled:dark:text-gray-400 sm:text-sm"
             >
 
-              Your Wordles
+              המילים שיצרתם
             </button>
           </Link>
         </div>

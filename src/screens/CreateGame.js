@@ -1,21 +1,24 @@
 import queryString from 'query-string';
 import * as React from 'react';
-import {  useState } from 'react';
+import { useEffect, useState } from 'react';
 import Div100vh from 'react-div-100vh';
 import { default as GraphemeSplitter } from 'grapheme-splitter';
 
 import { NewWord } from '../components/newWord/NewWord';
 import { Navbar } from '../components/navbar/Navbar';
 
-import {  GAME_COPIED_MESSAGE, SHARE_GAME_MODAL_WORD } from '../constants/strings';
+import {  GAME_COPIED_MESSAGE, SHARE_FAILURE_TEXT, SHARE_GAME_MODAL_WORD } from '../constants/strings';
 import { useAlert } from '../context/AlertContext';
-import { getStoredIsHighContrastMode } from '../lib/localStorage';
-import { findFirstUnusedReveal, getIsLatestGame, isWinningWord, isWordInWordList, unicodeLength } from '../lib/words';
+import { getStoredIsHighContrastMode, setStoredIsHighContrastMode } from '../lib/localStorage';
+import { findFirstUnusedReveal, getIsLatestGame, isWinningWord, isWordInWordList, solution, unicodeLength } from '../lib/words';
 import { loadStats } from '../lib/stats';
 import { ShareGameModal } from '../components/modals/ShareGameModal';
 import { shareWord } from '../lib/shareWord';
 import {CreateGameKeyboard} from '../components/keyboard/CreateGameKeyboard';
-import { MAX_CHALLENGES } from '../constants/settings';
+import { LONG_ALERT_TIME_MS, MAX_CHALLENGES } from '../constants/settings';
+import { SettingsModal } from '../components/modals/SettingsModal';
+import { StatsModal } from '../components/modals/StatsModal';
+import { InfoModal } from '../components/modals/InfoModal';
 const CreateGame = () => {
     // let [searchParams, setSearchParams] = useSearchParams();
     const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
@@ -63,6 +66,7 @@ const CreateGame = () => {
     // });
     // const isLatestGame = getIsLatestGame();
     const [isGameWon, setIsGameWon] = useState(false);
+    const isLatestGame = getIsLatestGame();
 
     const [currentGuess, setCurrentGuess] = useState('');
     const [isRevealing, setIsRevealing] = useState(false);
@@ -74,8 +78,21 @@ const CreateGame = () => {
         showSuccess: showSuccessAlert,
     } = useAlert();
 
-    // const currentword = searchParams.get('currentword');
-    // const queryParams = queryString.parse(window);
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+        }
+        else {
+            document.documentElement.classList.remove('dark');
+        }
+        if (isHighContrastMode) {
+            document.documentElement.classList.add('high-contrast');
+        }
+        else {
+            document.documentElement.classList.remove('high-contrast');
+        }
+    }, [isDarkMode, isHighContrastMode]);
+  
     const onChar = (value) => {
    
       if (unicodeLength(`${currentGuess}${value}`) <= 5 &&
@@ -165,12 +182,23 @@ const handleShareFailure = () => {
 console.log('handleShareFailure');
 
 };
-const handleShareToClipboard = () => {
-  
-//  console.log(showSuccessAlert(GAME_COPIED_MESSAGE));
-
+const handleDarkMode = (isDark) => {
+    setIsDarkMode(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  };
+  const handleHardMode = (isHard) => {
+    // if (guesses.length === 0 || localStorage.getItem('gameMode') === 'hard') {
+    //     setIsHardMode(isHard);
+    //     localStorage.setItem('gameMode', isHard ? 'hard' : 'normal');
+    // }
+    // else {
+    //     showErrorAlert(HARD_MODE_ALERT_MESSAGE);
+    // }
+  };
+  const handleHighContrastMode = (isHighContrast) => {
+    setIsHighContrastMode(isHighContrast);
+    setStoredIsHighContrastMode(isHighContrast);
 };
-
     return (
         <Div100vh>
             <div className="flex h-full flex-col">
@@ -225,6 +253,14 @@ const handleShareToClipboard = () => {
                     isHighContrastMode={isHighContrastMode} 
                     numberOfGuessesMade={guesses.length}
                       />
+                        <SettingsModal isOpen={isSettingsModalOpen} handleClose={() => setIsSettingsModalOpen(false)} isHardMode={isHardMode} handleHardMode={handleHardMode} isDarkMode={isDarkMode} handleDarkMode={handleDarkMode} isHighContrastMode={isHighContrastMode} handleHighContrastMode={handleHighContrastMode} />
+                        <StatsModal isOpen={isStatsModalOpen} handleClose={() => setIsStatsModalOpen(false)} solution={solution} guesses={guesses} gameStats={stats} isLatestGame={isLatestGame} isGameLost={isGameLost} isGameWon={isGameWon} handleShareToClipboard={() => showSuccessAlert(GAME_COPIED_MESSAGE)} handleShareFailure={() => showErrorAlert(SHARE_FAILURE_TEXT, {
+                        durationMs: LONG_ALERT_TIME_MS,
+                    })} handleMigrateStatsButton={() => {
+                        setIsStatsModalOpen(false);
+                        setIsMigrateStatsModalOpen(true);
+                    }} isHardMode={isHardMode} isDarkMode={isDarkMode} isHighContrastMode={isHighContrastMode} numberOfGuessesMade={guesses.length} />
+                      <InfoModal isOpen={isInfoModalOpen} handleClose={() => setIsInfoModalOpen(false)} />
                 </div>
                 {/* <p>Value of location: {currentword}</p> */}
             </div>
