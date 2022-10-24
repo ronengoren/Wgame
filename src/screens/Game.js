@@ -239,7 +239,6 @@ const [solution, setSolution] = useState('');
 useEffect(() => {
  
     const getTodayWord = GetWord();
-    console.log(getTodayWord);
 
     if (getTodayWord) {
         setSolution(getTodayWord);
@@ -250,23 +249,26 @@ useEffect(() => {
 
 
 const GetWord = () => {
-
         if (!params.getword) {
-            window.location = '/wgame/'
-            return;
+            window.location = '/'
         }
-  
-   
-//         let WordBefore = WORD.length
-//         var decodedData = window.atob(word); // decode the string
 
-  WORD.push(params.getword.toLowerCase())
-  WORDS.push(params.getword.toLowerCase())
+    
+        let WordBefore = WORD.length
+        var decodedData = window.atob(params.getword); // decode the string
+
+        if (decodedData.length < 5 ) {
+            window.location = '/';
+        }
+        console.log(decodedData);
+
+  WORD.push(decodedData.toLowerCase())
+  WORDS.push(decodedData.toLowerCase())
 
 //   // if (WORD.length > WordBefore) {
 //   //   return localeAwareUpperCase(WORD[index % WORD.length]);
 //   // }
-        return params.getword;
+        return decodedData;
     };
 
     return (
