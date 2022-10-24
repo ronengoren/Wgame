@@ -36,7 +36,7 @@ export const ShareGameIntro = ({ handleShare,word }) => {
             <button
             disabled={!isCopyButtonEnabled}
                 type="button"
-                className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
+                className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-br from-green-400 to-blue-400 px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
                 onClick={copyEmigrationCodeToClipboard}
             >
                 <DuplicateIcon className="mr-2 h-6 w-6 cursor-pointer dark:stroke-white" />
