@@ -128,7 +128,7 @@ const handleHardMode = (isHard) => {
             </button>
           </Link>
         </div>
-try5
+try6
         </div></div>
         <div className="mx-auto flex w-full grow flex-col px-1 pt-2 pb-8 sm:px-6 md:max-w-7xl lg:px-8 short:pb-2 short:pt-2">
           <InfoModal isOpen={isInfoModalOpen} handleClose={() => setIsInfoModalOpen(false)} />
