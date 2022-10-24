@@ -18,7 +18,7 @@ function App() {
        
             <Routes>
                 <Route index path="/" element={<Home />} />
-                <Route index path="wgame/game/:getword" element={<Game />} />
+                <Route index path="/wgame/game/:getword" element={<Game />} />
 
                 {/* <Route path="/wgame/wordle" element={<Wordle />} /> */}
                 <Route index path="/wgame/create_game" element={<CreateGame />} />
