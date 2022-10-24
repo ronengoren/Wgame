@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/wgame/static/js/runtime~main.8455ba26.js"
   },
   {
-    "revision": "c6ff1b9f679cfaa88d8117e490fa88a5",
+    "revision": "0781fa4c22af9a97fe3098632c600cce",
     "url": "/wgame/index.html"
   }
 ];
