@@ -63,7 +63,20 @@ const Home = () => {
     // },
   );
   const [isHighContrastMode, setIsHighContrastMode] = useState(getStoredIsHighContrastMode());
-
+  useEffect(() => {
+    if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+    }
+    else {
+        document.documentElement.classList.remove('dark');
+    }
+    if (isHighContrastMode) {
+        document.documentElement.classList.add('high-contrast');
+    }
+    else {
+        document.documentElement.classList.remove('high-contrast');
+    }
+}, [isDarkMode, isHighContrastMode]);
   const handleHighContrastMode = (isHighContrast) => {
     setIsHighContrastMode(isHighContrast);
     setStoredIsHighContrastMode(isHighContrast);
